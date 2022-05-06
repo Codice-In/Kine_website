@@ -16,7 +16,7 @@ const Header = () => {
                     <div className='header-content'>
                         <div className='header-links'>
                             <a href='/'>Home</a>
-                            <a href='http://localhost:3001/festivals'>Festivals</a>
+                            <a href='/festivals'>Festivals</a>
                             <a href='/community'>Community</a>
                             <a href='/'>Whitepaper</a>
                             <a href='/'><BsDiscord size={iconSize} /></a>

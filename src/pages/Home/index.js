@@ -9,9 +9,7 @@ import './style.scss';
 import gif from '../../assets/imgs/world.gif';
 import sub01 from '../../assets/imgs/substrate01.png';
 import sub02 from '../../assets/imgs/substrate02.png';
-import sub03 from '../../assets/imgs/substrate03.png';
 import sub04 from '../../assets/imgs/substrate04.png';
-import sub05 from '../../assets/imgs/substrate05.png';
 
 const AppBox = styled.div`
 		min-height: 200px;
@@ -175,7 +173,7 @@ function Home() {
 									</div>
 
 									<div className='info-1'>
-										<img width={500} height={300} src={sub05} alt='substrate' />
+										<img width={500} height={300} src={sub04} alt='substrate' />
 										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa.</p>
 										<div className='btns'>
 											<a href='/' className='btn1'>Learn More</a>
