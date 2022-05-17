@@ -1,0 +1,45 @@
+.faq-item {
+	width: 100%;
+    min-height: 30px;
+	padding: 5px 20px;
+    margin: 30px 0;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	background-color: #444;
+    transition: all ease 1s;
+
+	h1 {
+		font-size: 20px;
+		font-weight: bold;
+		color: #FFF;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+        cursor: pointer;
+
+        &:hover {
+            color: #47C7FA;
+        }
+
+		svg {
+			margin-right: 10px;
+		}
+	}
+
+	p {
+		font-size: 16px;
+		color: #FFF;
+		margin-top: 5px;
+        animation: slideY 1s;
+	}
+}
+
+@keyframes slideY {
+    from{
+        transform: translateY(-10px);
+    }
+    to {
+        transform: translateY(0px);
+    }
+}

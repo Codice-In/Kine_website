@@ -2,7 +2,7 @@ import './style.scss';
 
 const Footer = () => {
     return(
-        <footer>
+        <footer className='gradient-bg-footer'>
             <div className='footer-main'>
                 <div className='footer-content'>
                     <div className='footer-link-group'>

@@ -6,7 +6,6 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
-    margin-top: 100px;
     background-color: #000;
     display: flex;
     flex-direction: row;
@@ -84,4 +83,37 @@ footer {
             color: #DDD;
         }
     }
+}
+
+@media (max-width: 390px) {
+    .footer-link-group {
+        height: auto;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        border: #CCC solid 1px;
+    }
+
+    .column {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        
+        h2 {
+            font-size: 18px;
+            color: red;
+        }
+    
+        a {
+            font-size: 12px;
+        }
+    }
+    
+    .footer-link-group {
+        width: 100%;
+        padding: 0 30px;
+    }
+
 }
