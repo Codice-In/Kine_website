@@ -10,9 +10,6 @@ body {
   font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-	width: 100%;
-	min-width: 390px;
-	height: 100%;
 	color: #FFF;
   background-color: #222;
 	font-family: sans-serif;
@@ -60,6 +57,13 @@ button { cursor: pointer; }
   border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
+.header-glassmorphism {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 /* white glassmorphism */
 .white-glassmorphism {
   background: rgba(255, 255, 255, 0.05);
@@ -86,6 +90,17 @@ button { cursor: pointer; }
 		background-clip: text;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
+}
+
+.my-btn {
+  padding: 8px 20px;
+  color: #B026FF;
+  border: 2px solid #B026FF;
+}
+
+.my-btn:hover {
+  color: #47C7FA;
+  border: 2px solid #47C7FA;
 }
 
 @tailwind base;

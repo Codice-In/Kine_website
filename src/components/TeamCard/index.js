@@ -4,7 +4,7 @@ import './style.scss'
 
 export default function TeamCard({ name, image, role, twitter, github, linkedin }) {
     return (
-        <div className='card-box'>
+        <div className='card-box white-glassmorphism'>
             <img
                 className='card-box-img'
                 src={image}

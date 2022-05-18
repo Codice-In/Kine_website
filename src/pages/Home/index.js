@@ -11,7 +11,6 @@ import AppMainBox from '../../components/AppMainBox';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
-import './style.scss';
 import gif from '../../assets/imgs/world.gif';
 import TeamCard from '../../components/TeamCard';
 import HeadSection from '../../components/HeadSection';
@@ -44,13 +43,11 @@ function Home() {
 
 	return (
 		<>
-			<Header />
-
 			<button
 				className='
-					flex justify-center items-center fixed w-[50px] h-[50px]
+					flex justify-center items-center fixed md:w-[50px] md:h-[50px] w-[80px] h-[80px]
 					right-6 md:bottom-12 bottom-5 hover:bg-white hover:-translate-y-2
-					hover:text-[#B026FF] curso-pointer bg-[#B026FF]
+					hover:text-[#B026FF] curso-pointer bg-[#B026FF] z-50 rounded-full
 				'
 				onClick={goUp}
 				style={{
@@ -58,25 +55,26 @@ function Home() {
 					transition: 'all .4s ease',
 				}}
 			>
-				<IoIosArrowUp className='text-center mx-3 w-[20px] h-[20px]' />
+				<IoIosArrowUp className='text-center mx-3 md:w-[20px] md:h-[20px] w-[35px] h-[35px]' />
 			</button>
 
 			<a href='/'>
 				<label
 					className='
 						md:flex hidden fixed right-6 bottom-0 px-3 text-white
-						text-lg curso-pointer bg-[#B026FF] font-bold
+						text-lg curso-pointer bg-[#B026FF] font-bold z-10
 					'
 				>
 					Feedback
 				</label>
 			</a>
 
-			<div className="w-full pt-[70px]">
-				
+			<Header />
+
+			<div className="w-screen">
 				<Welcome gif={gif} />
 
-				<div className="gradient-bg-welcome">
+				<div className="w-screen gradient-bg-welcome">
 					<div className='w-full h-screen flex lg:justify-start lg:px-32 justify-center'>
 						<AppMainBox
 							myFade='fade-right'
@@ -94,7 +92,7 @@ function Home() {
 					</div>
 
 					<div className='w-full h-screen flex flex-col justify-center items-center' data-aos='fade-up'>
-						<h1 className='text-gradient text-4xl'>Backed by Kine Foundation</h1>
+						<h1 className='w-full text-center text-gradient text-4xl'>Backed by Kine Foundation</h1>
 						
 						<div className='w-2/5 flex md:justify-between justify-center my-20'>
 							<div className='flex flex-col justify-center items-center md:mx-0 mx-3'>
@@ -137,6 +135,9 @@ function Home() {
 									className='
 										info-title2 w-1/2 h-screen flex flex-col justify-center items-center
 									'
+									style={{
+										margin: '0 !important',
+									}}
 								>
 									<h1 className='lg:text-4xl text-2xl font-bold text-white'>
 										Kinergy structure
@@ -239,7 +240,7 @@ function Home() {
 					</div>
 				</div>
 
-				<div className='w-full flex flex-col h-auto pb-[50px] px-[50px] mx-0 gradient-bg-welcome'>
+				<div className='w-full flex flex-col h-auto pb-[50px] px-[50px] mx-0 gradient-bg-services'>
 					<HeadSection
 						title='Team'
 						subtitle='Our Great Team'
