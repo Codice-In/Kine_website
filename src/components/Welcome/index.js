@@ -2,25 +2,6 @@ import { useEffect } from 'react';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 
-/**
-.home-gif {
-	width: 75%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-
-	h1 {
-		font-size: 54px;
-	}
-}
-
-.info-title2{
-	margin: 0 !important;
-}
- */
-
 const Welcome = ({ gif }) => {
     useEffect(() => {
 		Aos.init({ duration: 2000 });
@@ -41,7 +22,7 @@ const Welcome = ({ gif }) => {
 					style={{
 						backgroundImage: `url(${gif})`,
 						backgroundRepeat: 'no-repeat',
-						backgroundSize: 'cover',
+						backgroundSize: '100% 100%',
 						backgroundPosition: 'center',
 					}}
 				>

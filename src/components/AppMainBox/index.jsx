@@ -4,10 +4,6 @@ import 'aos/dist/aos.css';
 import styled from 'styled-components';
 
 const AppBox = styled.div`
-		min-height: 200px;
-		width: 400px;
-		padding: 20px 60px;
-		position: relative;
 		border: 1px solid #B026FF;
 		transition: transform .5s;
 		margin-top: 50px;
@@ -36,7 +32,7 @@ const AppBox = styled.div`
 			position: absolute;
 			border: 1px solid #B026FF;
 			transition: all .5s;
-			transform: translate(-5%, -5%);
+			transform: translate(-3%, -2%);
 		}
 `;
 
@@ -46,11 +42,11 @@ const AppMainBox = ({ title, subtitle, className, myFade }) => {
 	}, []);
 	
 	return (
-		<div className={className} data-aos={myFade}>
-			<AppBox>
-				<h1 className='text-3xl mb-5 font-bold'>{title}</h1>
+		<div className={`${className}`} data-aos={myFade}>
+			<AppBox className='sm:w-[400px] w-[300px] min-h-[200px] relative py-5 px-14'>
+				<h1 className='sm:text-3xl text-xl mb-5 font-bold'>{title}</h1>
 
-				<p>{subtitle}</p>
+				<p className='text-sm'>{subtitle}</p>
 			</AppBox>
 		</div>
 	);

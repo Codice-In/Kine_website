@@ -16,13 +16,25 @@ import TeamCard from '../../components/TeamCard';
 import HeadSection from '../../components/HeadSection';
 import FaqItem from '../../components/FaqItem';
 import Welcome from '../../components/Welcome';
+import useWindowDimensions from '../../Helpers/dimension';
+import StructureItem from '../../components/StructureItem';
 
 function Home() {
 	const [scrollValue, setScrollValue] = useState(0);
+	const [isMobile, setIsMobile] = useState(false);
+	const { width, height } = useWindowDimensions();
 
 	useEffect(() => {
 		Aos.init({ duration: 2000 });
 	}, []);
+
+	useEffect(() => {
+		if (width < 666) {
+			setIsMobile(true);
+		} else {
+			setIsMobile(false);
+		}
+	}, [width, height]);
 
 	useEffect(() => {
         const onScroll = () => setScrollValue(window.scrollY);
@@ -43,39 +55,39 @@ function Home() {
 
 	return (
 		<>
-			<button
-				className='
-					flex justify-center items-center fixed md:w-[50px] md:h-[50px] w-[80px] h-[80px]
-					right-6 md:bottom-12 bottom-5 hover:bg-white hover:-translate-y-2
-					hover:text-[#B026FF] curso-pointer bg-[#B026FF] z-50 rounded-full
-				'
-				onClick={goUp}
-				style={{
-					display: window.scrollY <= 250 ? 'none' : '',
-					transition: 'all .4s ease',
-				}}
-			>
-				<IoIosArrowUp className='text-center mx-3 md:w-[20px] md:h-[20px] w-[35px] h-[35px]' />
-			</button>
-
-			<a href='/'>
-				<label
+			<div className="w-screen relative">
+				<button
 					className='
-						md:flex hidden fixed right-6 bottom-0 px-3 text-white
-						text-lg curso-pointer bg-[#B026FF] font-bold z-10
+						flex justify-center items-center fixed w-[50px] h-[50px]
+						right-6 md:bottom-12 bottom-5 hover:bg-white hover:-translate-y-2
+						hover:text-[#B026FF] curso-pointer bg-[#B026FF] z-50 rounded-full
 					'
+					onClick={goUp}
+					style={{
+						display: window.scrollY <= 250 ? 'none' : '',
+						transition: 'all .4s ease',
+					}}
 				>
-					Feedback
-				</label>
-			</a>
+					<IoIosArrowUp className='text-center mx-3 md:w-[20px] md:h-[20px] w-[35px] h-[35px]' />
+				</button>
 
-			<Header />
+				<a href='/'>
+					<label
+						className='
+							md:flex hidden fixed right-6 bottom-0 px-3 text-white
+							text-lg curso-pointer bg-[#B026FF] font-bold z-10
+						'
+					>
+						Feedback
+					</label>
+				</a>
 
-			<div className="w-screen">
+				<Header />
+				
 				<Welcome gif={gif} />
 
 				<div className="w-screen gradient-bg-welcome">
-					<div className='w-full h-screen flex lg:justify-start lg:px-32 justify-center'>
+					<div className='w-full min-h-screen flex lg:justify-start lg:px-32 justify-center py-28'>
 						<AppMainBox
 							myFade='fade-right'
 							title='Kinergy'
@@ -83,7 +95,7 @@ function Home() {
 						/>
 					</div>
 
-					<div className='w-full h-screen flex lg:justify-end lg:px-32 justify-center'>
+					<div className='w-full min-h-screen flex lg:justify-end lg:px-32 justify-center md:mb-0 mb-28'>
 						<AppMainBox
 							myFade='fade-left'
 							title='Kinergy'
@@ -91,7 +103,7 @@ function Home() {
 						/>
 					</div>
 
-					<div className='w-full h-screen flex flex-col justify-center items-center' data-aos='fade-up'>
+					<div className='w-full min-h-screen flex flex-col justify-center items-center md:mt-0 mt-48' data-aos='fade-up'>
 						<h1 className='w-full text-center text-gradient text-4xl'>Backed by Kine Foundation</h1>
 						
 						<div className='w-2/5 flex md:justify-between justify-center my-20'>
@@ -118,7 +130,7 @@ function Home() {
 						</div>
 						
 						<div className='flex flex-col justify-center items-center'>
-							<p className='w-2/5'>
+							<p className='w-full pl-4'>
 								Our mission is to build a fast, scalable decentralized audiovisual ecosystem that comprehends cinema and television production, curation and exhibition.
 								<br />
 								We want to assemble a broad community of nonconformist people, professionals, algorithms and users and co-create a community framework for curated channels of information.
@@ -128,7 +140,7 @@ function Home() {
 				</div>
 				
 				<div className='w-full gradient-bg-services'>
-					<div className='w-full flex'>
+					<div className={`w-full ${isMobile ? 'hidden' : 'flex'}`}>
 						<Controller>
 							<Scene duration={2000} offset={50} triggerElement=".info-title2" triggerHook={0} pin>
 								<div
@@ -193,6 +205,37 @@ function Home() {
 								</div>
 							</Scene>
 						</Controller>
+					</div>
+
+					<div className={`w-full h-auto pb-[50px] px-[50px] flex-col ${isMobile ? 'flex' : 'hidden'}`}>
+						<HeadSection
+							title='Kinergy structure'
+							subtitle="The structure of our organization"
+						/>
+						
+						<StructureItem
+							title='Rankings'
+							description='Rankings are lists proposed to be voted by token holders and a staking mechanism at the same time. Stakers earn rewards for leaving their tokens assigned to the lists they like and not moving those tokens.'
+							icon={<GiRank3 color='#B026FF' size={isMobile ? 25 : 30} />}
+						/>
+
+						<StructureItem
+							title='Constellation'
+							description="Constellations are a second layer for curation inside Kinergy. In this competition arena, curators can name and represent their choices, propose and test their voices and visions, and reveal each one's truth."
+							icon={<BsStars color='#B026FF' size={isMobile ? 25 : 30} />}
+						/>
+
+						<StructureItem
+							title='TVChain SEE'
+							description='SEE TVchain is the place where curated material from Kinergy meets real-time television creation but not only that.'
+							icon={<BsTv color='#B026FF' size={isMobile ? 25 : 30} />}
+						/>
+
+						<StructureItem
+							title='Producers Network'
+							description='It is an app built like a crowdfunding platform for moving pictures where donors buy tokens that represent film rights and are rewarded every time the film has revenue.'
+							icon={<GiDirectorChair color='#B026FF' size={isMobile ? 25 : 30} />}
+						/>
 					</div>
 				</div>
 
@@ -266,7 +309,7 @@ function Home() {
 						<TeamCard
 							name='Eliude Vemba'
 							image='https://upload.wikimedia.org/wikipedia/commons/2/26/Slightly_opened_silver_Macbook.jpg'
-							role='Blockchain Frontend Developer'
+							role='Frontend Developer'
 							twitter='https://twitter.com/eludevemba'
 							linkedin='https://www.linkedin.com/in/eludevemba/'
 							github='https://github.com/HelioPC'
@@ -284,9 +327,9 @@ function Home() {
 
 
 				<div className='w-full flex flex-col justify-center items-center h-[80vh] pt-[20px] gradient-bg-welcome' data-aos='fade-down'>
-					<h1 className='text-3xl mb-10'>Subscribe to our newsletter</h1>
-					<input className='w-[45%] h-10 rounded-[10px] border-none py-0 px-2.5 placeholder:text-[#777] mt-[20px] text-xl text-black bg-white' type='email' placeholder='Enter your email' />
-					<button className='w-[45%] h-10 text-white rounded-[10px] border-none py-0 px-2.5 mt-[20px] text-xl bg-[#B026FF] hover:bg-[#47C7FA] hover:scale-105 duration-500 hover:duration-500 transition-all'>Subscribe</button>
+					<h1 className='sm:text-3xl text-2xl font-bold mb-10'>Subscribe to our newsletter</h1>
+					<input className='sm:w-[45%] w-[90%] h-10 rounded-[10px] border-none py-0 px-2.5 placeholder:text-[#777] mt-[20px] text-xl text-black bg-white' type='email' placeholder='Enter your email' />
+					<button className='sm:w-[45%] w-[90%] h-10 text-white rounded-[10px] border-none py-0 px-2.5 mt-[20px] text-xl bg-[#B026FF] hover:bg-[#47C7FA] hover:scale-105 duration-500 hover:duration-500 transition-all'>Subscribe</button>
 				</div>
 			</div>
 			<Footer />
